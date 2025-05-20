@@ -34,6 +34,8 @@ def clase_ip(ip):
         return 'B'
     elif 192 <= octeto <= 223:
         return 'C'
+    elif 224 <= octeto <= 239:
+        return 'D'
     else:
         return 'E'
 
