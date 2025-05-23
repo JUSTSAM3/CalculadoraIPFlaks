@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IP</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background: #1a73e8;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: #1557b0;
+        }
+
+        .results {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .results h2 {
+            color: #1a73e8;
+            margin-top: 0;
+        }
+
+        .results p {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .error {
+            background: #ffe3e3;
+            color: #dc3545;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: 1px solid #ffc9c9;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .highlight {
+            color: #1a73e8;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📡 Calculadora</h1>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+         {% endif %}
+
+        <form method="post">
+
+            label for="ip">Dirección IP:</label>
+            <input type="text" id="ip" name="ip" placeholder="Ej. 192.168.1.1" required>
+
+            <label for="mask">Máscara de Red:</label>
+            <input type="text" id="mask" name="mask" placeholder="Ej. 255.255.255.0 o /24 o 24" required>
+
+            <input type="submit" value="Calcular">
+        </form>
+
+    {% if show_results %}
+        <div class="results">
+          <h2>Resultados:</h2>
+          <p>1. IP de red: <span class="highlight">{{ ip_red }}</span></p>
+          <p>2. IP de Broadcast: <span class="highlight">{{ broadcast }}</span></p>
+          <p>3. Hosts útiles: <span class="highlight">{{ hosts }}</span></p>
+          <p>4. Rango útil: <span class="highlight">{{ rango }}</span></p>
+          <p>5. Clase: <span class="highlight">{{ clase }}</span></p>
+          <p>6. Tipo: <span class="highlight">{{ tipo }}</span></p>
+          <p>7. Representación binaria:</p>
+          <pre>{{ binario }}</pre>
+        </div>
+    {% endif %}
+    </div>
+</body>
+</html>
+       
