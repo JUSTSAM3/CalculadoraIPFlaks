@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Samuel Mesa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&family=Funnel+Display&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #fffbe6;
+      font-family: 'Funnel Display', sans-serif;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .back {
+      align-self: flex-start;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #8d6b6b;
+      border: 2px solid #f34286;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .back:hover {
+      background-color: #f1bfbf;
+      color: #967b7b;
+    }
+
+    .bio-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: 1100px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .bio-img {
+      flex: 1 1 300px;
+      max-width: 400px;
+    }
+
+    .bio-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bio-text {
+      flex: 2 1 500px;
+      padding: 2rem;
+    }
+
+    .bio-text h1 {
+      font-family: 'Hanalei Fill', cursive;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    .bio-text p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .bio-container {
+        flex-direction: column;
+      }
+
+      .bio-text {
+        padding: 1.5rem;
+      }
+
+      .bio-text h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="{{ url_for('index') }}" class="back">←</a>
+
+  <div class="bio-container">
+    <div class="bio-img">
+      <img src="https://i.pinimg.com/736x/9c/60/bd/9c60bdf993be0c82fa0e991093c3583e.jpg" alt="Samuel Mesa">
+    </div>
+    <div class="bio-text">
+      <h1>Samuel Mesa</h1>
+      <p>
+        Samuel Mesa nació hace 21 años en Barranca, un entorno marcado por contrastes urbanos. Desde muy joven mostró curiosidad por lo inestable y lo inesperado, explorando los límites de lo permitido a través de intervenciones performativas.
+      </p>
+      <p>
+        Actualmente, su búsqueda ha evolucionado hacia la práctica de la magia y el pensamiento escénico. Samuel utiliza el ilusionismo como una herramienta para leer el mundo desde otros códigos, cuestionando las formas dominantes de percepción.
+      </p>
+      <p>
+        Le interesan los espacios de investigación artística, el teatro como provocación, y las experiencias sin etiquetas. Disfruta escribir, leer sobre psicoanálisis y asistir a semilleros donde experimenta con la creación de dispositivos sonoros y visuales.
+      </p>
+      <p>
+        Samuel no busca impresionar; más bien, propone una interrupción amable, un cambio de ritmo en la forma como nos relacionamos con la realidad. Y eso, casi siempre, lo consigue.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

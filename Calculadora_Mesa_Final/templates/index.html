@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>LA VIDA ES UN BANANO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background: url('https://i.pinimg.com/736x/9f/13/87/9f13875d60278fca5404aa031ce8148e.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      color: #000000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1.5rem; /* más cerca el título y los botones */
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .curved-text {
+      width: 100%;
+      max-width: 1200px;
+      animation: slideIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(60px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    text {
+      font-family: 'Hanalei Fill', cursive;
+      font-size: 6rem;
+      fill: #000000;
+      letter-spacing: 6px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .btn {
+      font-family: 'Funnel Display', sans-serif;
+      border: 2px solid #f34286;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      background: none;
+      color: #8d6b6b;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      border-radius: 20px;
+    }
+
+    .btn:hover {
+      background: #f1bfbf;
+      color: #967b7b;
+    }
+
+    @media (max-width: 768px) {
+      text {
+        font-size: 3rem;
+        letter-spacing: 2px;
+      }
+
+      .btn {
+        padding: 0.75rem 2rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="curved-text">
+      <svg viewBox="0 0 1400 500">
+        <defs>
+          <path id="curve" d="M200,400 A600,300 0 0,1 1200,400" fill="transparent" />
+        </defs>
+        <text text-anchor="middle">
+          <textPath href="#curve" startOffset="50%">LA VIDA ES UN BANANO</textPath>
+        </text>
+      </svg>
+    </div>
+
+    <div class="buttons">
+      <a href="{{ url_for('bio') }}" class="btn">BIO</a>
+      <a href="{{ url_for('calculadora') }}" class="btn">CALCULADORA</a>
+
+    </div>
+  </div>
+</body>
+</html>
